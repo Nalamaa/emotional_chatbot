@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Aura — Chat</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="top-left">
+      <img src="Aura Logo.jpg" alt="Aura logo" class="logo-small" />
+      <div>
+        <div id="userGreeting" class="welcome-line">Hello</div>
+        <div id="userInfo" class="sub-line">Aura is listening — share as you feel.</div>
+      </div>
+    </div>
+    <div class="top-right">
+      <button id="exportBtn" class="btn small">Export</button>
+      <button id="newChatBtn" class="btn small quiet">Clear</button>
+      <button id="backBtn" class="btn small quiet" onclick="window.location.href='index.html'">Home</button>
+    </div>
+  </header>
+
+  <main class="chat-main">
+    <aside class="history">
+      <h3>History</h3>
+      <div id="historyList" class="history-list">No messages yet.</div>
+    </aside>
+
+    <section class="chat-area">
+      <div id="messagesWrapper" class="chat-window"></div>
+
+      <div id="typingIndicator" style="display:none; margin:8px; color:gray;">Aura is typing...</div>
+
+      <form id="messageForm" class="message-form" onsubmit="event.preventDefault(); sendMessage();">
+        <input id="messageInput" placeholder="Write how you feel... (example: I'm not stressed)" autocomplete="off" required />
+        <button type="button" id="sendBtn" class="btn">Send</button>
+      </form>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

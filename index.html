@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Aura — Welcome</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="centered">
+    <div class="card welcome-card">
+      <img src="Aura Logo.jpg" alt="Aura logo" class="logo-large" />
+      <h1>Welcome to Aura</h1>
+      <p class="lead">An emotional-support companion — gentle, respectful, and here to listen.</p>
+
+      <form id="userForm" class="user-form">
+        <label>
+          Your name
+          <input id="name" name="name" required placeholder="e.g., Maha" />
+        </label>
+
+        <label>
+          Your age
+          <input id="age" name="age" required type="number" min="1" placeholder="e.g., 24" />
+        </label>
+
+        <div class="actions">
+          <button type="submit" class="btn">Begin Chat</button>
+        </div>
+      </form>
+
+      <p class="small">Aura stores your conversation locally on this device only.</p>
+    </div>
+  </main>
+
+  <script>
+    // Handle form submission and save to localStorage
+    document.getElementById('userForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const age = document.getElementById('age').value.trim();
+
+      if (name && age) {
+        localStorage.setItem('userName', name);
+        localStorage.setItem('userAge', age);
+        window.location.href = 'chat.html';
+      }
+    });
+  </script>
+</body>
+</html>
